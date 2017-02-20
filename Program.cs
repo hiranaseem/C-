@@ -1,45 +1,67 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace array
+public class Parent
 {
-    class Program
+
+    string parentString;
+
+    public Parent()
     {
-        static void Main(string[] args)
-        {
 
-            int[] n = new int[10];
-            
+        Console.WriteLine("Parent Constructor.");
 
-            for(int i=0; i<10; i++)
-            {
-                n[i] = i + 100;
-            }
-            /*
-            for(j=0; j<10; j++)
-            {
-                Console.WriteLine("Element[{0}]={1}", j, n[j]);
-            }
-            */
-
-            foreach (int j in n)
-            {
-               int i = j - 100;
-                Console.WriteLine("Element[{0}] = {1}", i, j);
-            }
-            Console.ReadKey();
-
-
-
-
-
-
-
-
-
-        }
     }
+
+    public Parent(string myString)
+    {
+
+        parentString = myString;
+
+        Console.WriteLine(parentString);
+
+    }
+
+    public void print()
+    {
+
+        Console.WriteLine("I'm a Parent Class.");
+
+    }
+
+}
+
+
+
+
+public class Child : Parent
+{
+    // ": base" calls the base class constructor with matching parameter list
+
+    public Child(): base("From Derived")
+    {
+
+        Console.WriteLine("Child Constructor.");
+
+    }
+
+    public new void print()
+    {
+
+        base.print();
+
+        Console.WriteLine("I'm a Child Class.");
+
+    }
+
+    public static void Main()
+    {
+
+        Child child = new Child();
+
+        child.print();
+
+        ((Parent)child).print();
+
+    }
+
 }
