@@ -44,7 +44,7 @@ namespace baseClassExample2
             cost = GetArea() * 70;//cost = area * 70;
             return cost;//return cost
         }
-        public void Display()//method to display cost
+        public void Display()//method to display cost 
         {
             base.Display();
             Console.WriteLine("Cost: {0}", GetCost());
