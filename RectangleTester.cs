@@ -24,7 +24,7 @@ namespace baseClassExample
         protected int height;//initialised height
     }
 
-    //Derived class
+    //Derived class 
 
     class Rectangle : Shape//class Shape is derived from Rectangle
     {
