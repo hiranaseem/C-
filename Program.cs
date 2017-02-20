@@ -4,46 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace reverseString2
+namespace constructorExample
 {
+    /*A constructor is a special member function that is executed whenever
+     create new objects of that class
+     Constrcutor has the same name as class and does not have a return type*/
+
     class Program
     {
-        static void Main(string[] args)
+        private double length;//length of a line
+        public Program()//created constructor of the class
         {
-            Console.WriteLine("Please enter a string to reverse");//entered string
-            String str = Console.ReadLine();//read in string
+            Console.WriteLine("Object is being created");
+        }
 
+        public void setLength(double len)
+        {
+            length = len;
+        }
 
-            char[] array=str.ToCharArray();
-            char[] result = new char[array.Length];
+        public double getLength()
+        {
+            return length;
+        }
 
-            for (int i = 0, j = str.Length - 1; i < str.Length; i++, j--)
-            {
+        static void Main(string[] args)//main method
+        {
+            Program Line = new Program();
 
-                result[i] = array[j];
-
-            }
-            foreach(char item in result)
-            {
-                Console.WriteLine(item);
-            }
-
-
-            /*int num = str.Length;//stored length of string
-
-            String[] array = new String[num];//created array of string length
-            array = str.Split(',');//inserted string into array
-
-           
-
-            foreach(string item in array)
-            {
-                Array.Reverse(array);
-                Console.WriteLine(item);
-            }
-            */
-            
-
+            //set line length
+            Line.setLength(6.0);
+            Console.WriteLine("Length of line is: {0}", Line.getLength());
+            Console.ReadKey();
         }
     }
 }
