@@ -1,67 +1,49 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Parent
+namespace reverseString2
 {
-
-    string parentString;
-
-    public Parent()
+    class Program
     {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Please enter a string to reverse");//entered string
+            String str = Console.ReadLine();//read in string
 
-        Console.WriteLine("Parent Constructor.");
 
+            char[] array=str.ToCharArray();
+            char[] result = new char[array.Length];
+
+            for (int i = 0, j = str.Length - 1; i < str.Length; i++, j--)
+            {
+
+                result[i] = array[j];
+
+            }
+            foreach(char item in result)
+            {
+                Console.WriteLine(item);
+            }
+
+
+            /*int num = str.Length;//stored length of string
+
+            String[] array = new String[num];//created array of string length
+            array = str.Split(',');//inserted string into array
+
+           
+
+            foreach(string item in array)
+            {
+                Array.Reverse(array);
+                Console.WriteLine(item);
+            }
+            */
+            
+
+        }
     }
-
-    public Parent(string myString)
-    {
-
-        parentString = myString;
-
-        Console.WriteLine(parentString);
-
-    }
-
-    public void print()
-    {
-
-        Console.WriteLine("I'm a Parent Class.");
-
-    }
-
-}
-
-
-
-
-public class Child : Parent
-{
-    // ": base" calls the base class constructor with matching parameter list
-
-    public Child(): base("From Derived")
-    {
-
-        Console.WriteLine("Child Constructor.");
-
-    }
-
-    public new void print()
-    {
-
-        base.print();
-
-        Console.WriteLine("I'm a Child Class.");
-
-    }
-
-    public static void Main()
-    {
-
-        Child child = new Child();
-
-        child.print();
-
-        ((Parent)child).print();
-
-    }
-
 }
